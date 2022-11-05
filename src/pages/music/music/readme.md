@@ -1,9 +1,19 @@
 ## Music 组件
 ### index文件
-index文件是最外层文件  
+index文件是最外层文件
+<Music>
+  <Cover />
+  <BaseInfo />
+  <Lrc />
+  <Controls>
+    <Slider />
+    <Icons />
+  </Controls>
+</Music>  
 负责向子组件提供如下数据
 - current对象
 - aboutAudio对象
+
 current 对象如下
 ```ts
 export type playMode = 'list' | 'loop' | 'random'
@@ -14,6 +24,7 @@ export interface ICurrent {
   mode: playMode
 }
 ```
+
 aboutAudio 如下
 ```ts
 export type PlayStatus = 'play' | 'pause'
