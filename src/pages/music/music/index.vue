@@ -123,6 +123,12 @@ function playMusicWithMode() {
   changeUrl()
 }
 /* 歌曲播放完毕之后按模式选择播放下一首 ------------------------------- */
+
+/* 进度切换 */
+function sliderChange(payload: number) {
+  aboutAudio.currentTime.value = payload
+  aboutAudio.audio.currentTime = payload
+}
 </script>
 
 <template>
@@ -157,6 +163,7 @@ function playMusicWithMode() {
           :about-audio="aboutAudio"
           @show-me-the-list="showMeTheList"
           @change-mode="changeMode"
+          @slider-change="sliderChange"
         />
       </div>
     </div>

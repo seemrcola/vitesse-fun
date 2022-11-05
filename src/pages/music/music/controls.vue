@@ -11,6 +11,7 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'showMeTheList'): void
   (e: 'changeMode'): void
+  (e: 'sliderChange', payload: number): void
 }>()
 
 /* 展开和收起列表 */
@@ -22,6 +23,11 @@ function showMeTheList() {
 function changeMode() {
   emit('changeMode')
 }
+
+/* 播放进度切换 */
+function sliderChange(payload:number) {
+  emit('sliderChange', payload)
+}
 </script>
 
 <template>
@@ -30,6 +36,7 @@ function changeMode() {
     <Slider
       :about-audio="aboutAudio"
       :max="props.aboutAudio.duration"
+      @slider-change="sliderChange"
     />
     <!-- time -->
     <div text-xs w-24 pl-2 text-center>
