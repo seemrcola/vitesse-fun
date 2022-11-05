@@ -1,0 +1,2 @@
+# vitesse-fun
+learn ts
