@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import type { IAudio } from './audio'
+import type { IAudio } from './types'
 import type { ICurrent } from './types'
 import { formatLrc } from './utils'
 interface Props {

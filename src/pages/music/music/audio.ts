@@ -1,16 +1,5 @@
 import { ref } from 'vue'
-import type { Ref } from 'vue'
-
-export type PlayStatus = 'play' | 'pause'
-
-export interface IAudio {
-  audio: any
-  status: Ref<PlayStatus>
-  isEnd: Ref<boolean>
-  duration: Ref<number>
-  currentTime: Ref<number>
-  buffered: Ref<TimeRanges | undefined>
-}
+import { IAudio } from './types'
 
 export function initAudio(): IAudio {
   const aboutAudio: IAudio = {

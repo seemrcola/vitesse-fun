@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import type { Ref } from 'vue'
-import type { IAudio } from './audio'
+import type { IAudio } from './types'
 
 const props = defineProps<{
   max: Ref<number>

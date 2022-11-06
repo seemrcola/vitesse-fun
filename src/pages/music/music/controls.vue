@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import Slider from './slider.vue'
 import { formaTime } from './audio'
-import type { IAudio } from './audio'
+import type { IAudio } from './types'
 import type { ICurrent } from './types'
 
 const props = defineProps<{
@@ -28,6 +28,17 @@ function changeMode() {
 function sliderChange(payload:number) {
   emit('sliderChange', payload)
 }
+
+/* 播放音量切换 */
+const volume = ref(30)
+const volumeShow = ref(false)
+function showVolume() {
+  volumeShow.value = !volumeShow.value
+}
+watch(
+  () => volume.value,
+  n => props.aboutAudio.audio.volume = n / 100
+)
 </script>
 
 <template>
@@ -46,7 +57,10 @@ function sliderChange(payload:number) {
     </div>
     <!-- tool -->
     <div w-20 flex justify-around items-center>
-      <div i-iconoir:sound-high />
+      <div relative @click="showVolume">
+        <div i-iconoir:sound-high />
+        <input v-show="volumeShow" v-model="volume" id="volume" type="range" min="10" max="100" step="1">
+      </div>
       <div cursor-pointer @click="changeMode">
         <div
           v-show="props.current.mode === 'list'"
@@ -68,3 +82,14 @@ function sliderChange(payload:number) {
     </div>
   </div>
 </template>
+
+<style>
+#volume {
+  position: absolute;
+  left: -30px;
+  top: -40px;
+  height: 4px;
+  width: 80px;
+  transform: rotate(-90deg);
+}
+</style>
