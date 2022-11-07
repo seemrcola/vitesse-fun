@@ -11,10 +11,10 @@ const emit = defineEmits<{
 }>()
 
 const app = ref<HTMLElement | null>(null)
-const section = ref<HTMLElement | null>(null)
-const cache = ref<HTMLElement | null>(null)
-const active = ref<HTMLElement | null>(null)
-const slider = ref<HTMLElement | null>(null)
+const section = ref<HTMLElement>()
+const cache = ref<HTMLElement>()
+const active = ref<HTMLElement>()
+const slider = ref<HTMLElement>()
 // 滑动条长度
 let sliderLength = 0
 

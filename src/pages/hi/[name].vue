@@ -11,6 +11,9 @@ watchEffect(() => {
 function music() {
   router.push({ name: 'music' })
 }
+function plum() {
+  router.push({ name: 'plum' })
+}
 </script>
 
 <template>
@@ -29,27 +32,29 @@ function music() {
     <template v-if="user.otherNames.length">
       <p text-sm mt-4>
         <span opacity-75>{{ t('intro.aka') }}:</span>
-        <ul>
-          <li v-for="otherName in user.otherNames" :key="otherName">
-            <router-link :to="`/hi/${otherName}`" replace>
-              {{ otherName }}
-            </router-link>
-          </li>
-        </ul>
+      <ul>
+        <li v-for="otherName in user.otherNames" :key="otherName">
+          <router-link :to="`/hi/${otherName}`" replace>
+            {{ otherName }}
+          </router-link>
+        </li>
+      </ul>
       </p>
     </template>
 
     <div>
-      <button
-        btn m="3 t6" text-sm
-        @click="router.back()"
-      >
+      <button btn m="3 t6" text-sm @click="router.back()">
         {{ t('button.back') }}
       </button>
     </div>
 
-    <p opacity-75 cursor-pointer @click="music">
-      muisc
-    </p>
+    <div flex-center>
+      <p opacity-75 cursor-pointer mr-4 @click="music">
+        muisc
+      </p>
+      <p opacity-75 cursor-pointer @click="plum">
+        plum
+      </p>
+    </div>
   </div>
 </template>
