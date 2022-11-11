@@ -14,6 +14,9 @@ function music() {
 function plum() {
   router.push({ name: 'plum' })
 }
+function mainSweeper () {
+  router.push({ name: 'mainsweeper' })
+}
 </script>
 
 <template>
@@ -50,10 +53,13 @@ function plum() {
 
     <div flex-center>
       <p opacity-75 cursor-pointer mr-4 @click="music">
-        muisc
+        Muisc
       </p>
-      <p opacity-75 cursor-pointer @click="plum">
-        plum
+      <p opacity-75 cursor-pointer mr-4 @click="plum">
+        Plum
+      </p>
+      <p opacity-75 cursor-pointer @click="mainSweeper">
+        MainSweeper
       </p>
     </div>
   </div>
