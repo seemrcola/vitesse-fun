@@ -18,6 +18,7 @@ const state = reactive(
   )
 )
 
+let minesCount = ref(0)
 let mineGenerated = false
 function initGenerate(block:BlockState) {
   if(mineGenerated) return 
@@ -30,6 +31,7 @@ function generateMines(init:BlockState) {
       if(Math.abs(block.x - init.x) < 1) continue 
       if(Math.abs(block.y - init.y) < 1) continue
       block.mine = Math.random() < 0.2
+      if(block.mine) minesCount.value++
     }
   }
   updateNumbers()
@@ -129,6 +131,7 @@ function checkGameStatus() {
 
 <template>
   <div>
+    <p text-sm mb-4>炸弹已生成：「{{minesCount}}」</p>
     <div v-for="(list, index) of state" :key="index" flex="~">
       <button 
         v-for="(item, idx) of list" :key="idx" 
