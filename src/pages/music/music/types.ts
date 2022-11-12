@@ -2,6 +2,7 @@ import type { Ref } from 'vue'
 export type PlayStatus = 'play' | 'pause'
 
 export type playMode = 'list' | 'loop' | 'random'
+
 export interface ICurrent {
   music: { [propsName: string]: any }
   last: boolean

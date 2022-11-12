@@ -4,7 +4,7 @@ import Controls from './controls.vue'
 import BaseInfo from './baseinfo.vue'
 import Lrc from './lrc.vue'
 import List from './list.vue'
-import { initAudio, setUrl } from './audio'
+import { initAudio, setUrl,removeAudio } from './audio'
 import type { ICurrent } from './types'
 interface Props {
   list: any[]
@@ -129,6 +129,11 @@ function sliderChange(payload: number) {
   aboutAudio.currentTime.value = payload
   aboutAudio.audio.currentTime = payload
 }
+
+// 清空audio
+onBeforeUnmount(() => {
+  removeAudio(aboutAudio)
+})
 </script>
 
 <template>

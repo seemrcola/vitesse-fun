@@ -40,6 +40,12 @@ export function setUrl(audio: any, url: string) {
   audio.src = url
 }
 
+export function removeAudio(aboutAudio:IAudio) {
+  aboutAudio.audio.pause()
+  setUrl(aboutAudio, '')
+  aboutAudio.audio.remove()
+}
+
 export function formaTime(time: number) {
   time = Math.floor(time)
   const m = Math.floor(time / 60)
