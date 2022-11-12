@@ -15,7 +15,7 @@ function plum() {
   router.push({ name: 'plum' })
 }
 function mainSweeper () {
-  router.push({ name: 'mainsweeper' })
+  router.push({ name: 'minesweeper' })
 }
 </script>
 
@@ -59,7 +59,7 @@ function mainSweeper () {
         Plum
       </p>
       <p opacity-75 cursor-pointer @click="mainSweeper">
-        MainSweeper
+        MineSweeper
       </p>
     </div>
   </div>
