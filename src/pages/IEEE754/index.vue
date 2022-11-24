@@ -15,6 +15,18 @@ function calc(e:any) {
   }
   //0和1之间的小数
   if(number < 1 && number > 0) {
+    pos--
+    let res = calcFloat(Number(number))
+    let iter = [...res]
+    for(let i of iter) {
+      if(i === 0) {
+        pos--
+        res.shift()
+      }
+      else break
+    }
+    calcE([1], pos)
+    calcM([], res)
     return 
   }
 
@@ -65,7 +77,7 @@ function calcE(nums: number[], pos:number) {
     e = new Array(11 - e.length).fill(0).concat(e)
   E.value = e
 }
-//生成M
+//生成 M
 function calcM(num1: number[], num2: number[]) {
   let res = [...num1, ...num2]
   res.shift()
